@@ -28,7 +28,7 @@ Database Configuration
 ### Import SQL file into MySQL
 		$ create database oauthDB.sql
 
-		$mysql -uroot -p  < oauthDB.sql
+		$ mysql -uroot -p  < oauthDB.sql
 
 ### Setting  spring-database.xml
 		<bean id="dataSource"
@@ -54,15 +54,18 @@ Cannot Access Resource without Access Token
 ===============================================================
 http://localhost:8080/spring4mvc-oauth2.0-server-db/api/users/ 
 
+Let's get access_token for accessing resource.
 
 Get Access Token
 ===============================================================
 http://localhost:8080/spring4mvc-oauth2.0-server-db/oauth/token?grant_type=password&username=lucasko&password=luc@s1234&client_id=abcd-clientid-lucasko-12345&client_secret=1234-secret-test 
+
 {"access_token":"714fe7e2-a746-44f1-921b-26e964bfa8d0","token_type":"bearer","refresh_token":"5a78534e-599b-4045-a759-41d93ca57f78","expires_in":114}
 
 
 Access Resource with Access Token (Replace acces_token with new one):
 ===============================================================
 http://localhost:8080/spring4mvc-oauth2.0-server-db/api/users?access_token=714fe7e2-a746-44f1-921b-26e964bfa8d0
+
 [{"id":1,"name":"user001","email":"user001@example.com","phone":"0123456789"},{"id":2,"name":"user002","email":"user002@example.com","phone":"9876543210"},{"id":3,"name":"user003","email":"user003@example.com","phone":"0000000000"}]
 
