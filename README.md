@@ -20,7 +20,7 @@ Major Dependencies of Project:
 Database Configuration
 ===============================================
 ### Import SQL file into MySQL
-	$ create database oauthDB.sql
+	$ create database oauthDB ; 
 	
 	$ sudo mysql -uroot -p oauthDB  < oauthDB.sql
 
