@@ -2,50 +2,44 @@ My Environment:
 ===============================================
 
 1. Maven
-
 2. JDK 1.8
-
 3. STS
-
 4. Tomcat 1.7
 
 
 Major Dependencies of Project:
 ===============================================
+
 1. Spring 4.0.7.RELEASE
-
 2. Spring Security 3.2.5.RELEASE
-
 3. Spring Security Oauth2 1.0.5.RELEASE
-
 4. Spring JDBC 4.1.6
-
 5. mysql-connector-java 5.1.18
 
 
 Database Configuration
 ===============================================
 ### Import SQL file into MySQL
-		$ create database oauthDB.sql
-
-		$ mysql -uroot -p  < oauthDB.sql
+	$ create database oauthDB.sql
+	
+	$ mysql -uroot -p  < oauthDB.sql
 
 ### Setting  spring-database.xml
-		<bean id="dataSource"
-				class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-				<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://localhost:3306/oauthDB" />
-				<property name="username" value="root" />
-				<property name="password" value="P@ssw0rd" />
-			</bean>
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	<property name="url" value="jdbc:mysql://localhost:3306/oauthDB" />
+	<property name="username" value="root" />
+	<property name="password" value="P@ssw0rd" />
+</bean>
 
+Changing password of mysql.
 Replacing P@ssw0rd with yours.
 
 
 ### Setting spring-security.xml
-				 <jdbc-user-service data-source-ref="dataSource" 
-				 users-by-username-query="select username,password, enabled from users where username=?" 
-				 authorities-by-username-query="select username,role from users where username=?  "/> 
+	<jdbc-user-service data-source-ref="dataSource" 
+	 users-by-username-query="select username,password, enabled from users where username=?"
+	 authorities-by-username-query="select username,role from users where username=?  "/> 
 				 
 If you modify the structure of oauthDB, remember to modify this.
 
